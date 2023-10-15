@@ -13,7 +13,7 @@ int get_flag(char *m, flags_t *z)
 
 	switch (*m)
 	{
-                         case '#':
+                case '#':
 			j = params->hashtag_flag = 1;
 			break;
 		case '-':
