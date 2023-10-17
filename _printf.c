@@ -10,7 +10,7 @@ int _printf(const char *format, ...)
 va_list l;
 int m = 0;
 char *x, st;
-flags_t z = PARAMS;
+flags_t z = PARAMS_INIT;
 va_start(l, format)
 if ((!format[1] && format[0] == '%')) || !format)
 {
@@ -43,7 +43,7 @@ if (get_modifier(x, &z))
 x++;
 if (!get_specifier(x))
 
-m += print_from_to(st, x, params.l_modifier || params.h_modifier ? p - 1 : 0);
+m += print_from_to(st, x, z.l_modifier || z.h_modifier ? p - 1 : 0);
 else
 m += get_print_func(x, l, &z);
 
