@@ -7,8 +7,8 @@
  */
 int _printf(const char *format, ...)
 {
-va_list l;
 int m = 0;
+va_list l;
 char *x, *st;
 flags_t z = PARAMS_INIT;
 va_start(l, format);
@@ -30,8 +30,6 @@ continue;
 }
 st = x;
 x++;
-
-
 while (get_flag(x, &z))
 {
 x++;
