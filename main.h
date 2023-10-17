@@ -17,18 +17,6 @@
 #include <unistd.h>
 
 /**
- * struct specifier - token of stuct
- *
- * @f: The function associated
- * @specifier: token of format
- */
-typedef struct specifier
-{
-             int (*f)(va_list, flags_t *);
-	char *specifier;
-} specifier_t;
-
-/**
  * struct parameters - struct of parameters
  *
  * @unsign: flag if unsigned value
@@ -62,6 +50,18 @@ typedef struct parameters
 	unsigned int h_modifier		: 1;
 	unsigned int l_modifier		: 1;
 } flags_t;
+
+/**
+ * struct specifier - token of stuct
+ *
+ * @f: The function associated
+ * @specifier: token of format
+ */
+typedef struct specifier
+{
+             int (*f)(va_list, flags_t*);
+	char *specifier;
+} specifier_t;
 
 char *convert(long int num, int b, int f, flags_t *z);
 int print_unsigned(va_list l, flags_t *z);
