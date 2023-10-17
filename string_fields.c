@@ -7,7 +7,7 @@
  * Return: new pointer
  *
 */
-char *get_precision(char *n, flags_t *z, va_list l)
+char *get_precision(char *n, va_list l, flags_t *z)
 {
 
 int f = 0;
@@ -16,7 +16,7 @@ return (n);
 n++;
 if (*n == '*')
 {
-d = va_arg(l, int)
+f = va_arg(l, int);
 n++;
 }
 else

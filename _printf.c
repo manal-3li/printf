@@ -9,10 +9,10 @@ int _printf(const char *format, ...)
 {
 va_list l;
 int m = 0;
-char *x, st;
-flags_t z = PARAMS;
-va_start(l, format)
-if ((!format[1] && format[0] == '%')) || !format)
+char *x, *st;
+flags_t z = PARAMS_INIT;
+va_start(l, format);
+if ((!format[1] && format[0] == '%') || !format)
 {
 return (-1);
 }
@@ -36,16 +36,16 @@ while (get_flag(x, &z))
 {
 x++;
 }
-x = get_width(x, &z, l);
-x = get_precision(x, &z, l);
+x = get_width(x, l, &z);
+x = get_precision(x, l, &z);
 
 if (get_modifier(x, &z))
 x++;
 if (!get_specifier(x))
 
-m += print_from_to(st, x, params.l_modifier || params.h_modifier ? p - 1 : 0);
+m += print_from_to(st, x, z.l_modifier || z.h_modifier ? x - 1 : 0);
 else
-m += get_print_func(x, l, &z);
+m += get_pfunc(x, l, &z);
 
 }
 _putchar(BUF_FLUSH);
