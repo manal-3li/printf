@@ -21,8 +21,8 @@ int (*get_specifier(char *s))(va_list l, flags_t *z)
 		{"X", print_HEX},
 		{"p", print_address},
 		{"S", print_S},
-		{"r", print_rev},
-		{"R", print_rot13},
+		{"r", prints_rev},
+		{"R", rot13},
 		{NULL, NULL}
 	};
 	int j = 0;
