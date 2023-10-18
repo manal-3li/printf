@@ -18,13 +18,13 @@ stt++;
 return (y);
 }
 /**
- * prints_reversed - print string in reverse
+ * prints_rev - print string in reverse
  * @l: string
  * @z: the parameters struct
  * Return: number bytes printed
  *
 */
-int prints_reversed(va_list l, flags_t *z)
+int prints_rev(va_list l, flags_t *z)
 {
 int i;
 int s = 0;
@@ -41,12 +41,12 @@ s += _putchar(*y);
 return (s);
 }
 /**
- * print13 - prints the rot13'ed string
+ * rot13 - prints the rot13'ed string
  * @l: string
  * @z: the parameters struct
  * Return: number bytes printed
 */
-int print13(va_list l, flags_t *z)
+int rot13(va_list l, flags_t *z)
 {
 int n;
 int ind;
