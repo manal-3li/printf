@@ -1,5 +1,5 @@
 #include "main.h"
-
+11;rgb:0000/0000/0000
 /**
  * print_octal - print unsigned octal num
  * @l: pointer of arguments
@@ -66,7 +66,7 @@ int print_hex(va_list l, flags_t *z)
 	else
 		u = (unsigned int)va_arg(l, unsigned int);
 
-	c = convert(u, 16, CONVERT_UNSIGNED | CONVERT_LOWERCASE, z);
+	str = convert(u, 16, CONVERT_UNSIGNED | CONVERT_LOWERCASE, z);
 	if (z->hashtag_flag && u)
 	{
 		*--c = 'x';
@@ -96,7 +96,7 @@ int print_HEX(va_list l, flags_t *z )
 	else
 		u = (unsigned int)va_arg(l, unsigned int);
 
-	c = convert(u, 16, CONVERT_UNSIGNED, z);
+	str = convert(u, 16, CONVERT_UNSIGNED, z);
 	if (z->hashtag_flag && u)
 	{
 		*--c = 'X';

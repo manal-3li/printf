@@ -12,7 +12,7 @@ int y = 0;
 while (stt <= stp)
 {
 if (stt != exc)
-y += _putchar(*start);
+y += _putchar(*stt);
 stt++;
 }
 return (y);

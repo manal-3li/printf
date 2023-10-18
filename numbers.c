@@ -39,7 +39,7 @@ int print_unsigned(va_list l, flags_t *z)
 	else
 		u = (unsigned int)va_arg(l, unsigned int);
 	z->unsign = 1;
-	return (print_number(convert(l, 10, CONVERT_UNSIGNED, z), z));
+	return (print_number(convert(u, 10, CONVERT_UNSIGNED, z), z));
 }
 
 /**
@@ -66,7 +66,7 @@ char *convert(long int num, int b, int f, flags_t *z)
 		sign = '-';
 
 	}
-	array = f & CONVERT_LOWERCASE ? "0123456789abcdef" : "0123456789ABCDEF";
+	a = f & CONVERT_LOWERCASE ? "0123456789abcdef" : "0123456789ABCDEF";
 	p = &buffer[49];
 	*p = '\0';
 

@@ -9,15 +9,15 @@
  */
 int print_int(va_list l, flags_t *z)
 {
-	long l;
+	long o;
 
 	if (z->l_modifier)
-		l = va_arg(l, long);
+		o = va_arg(l, long);
 	else if (z->h_modifier)
-		l = (short int)va_arg(l, int);
+		o = (short int)va_arg(l, int);
 	else
-		l = (int)va_arg(l, int);
-	return (print_number(convert(l, 10, 0, z), z));
+		o = (int)va_arg(l, int);
+	return (print_number(convert(o, 10, 0, z), z));
 }
 
 /**
@@ -53,7 +53,7 @@ int print_string(va_list l, flags_t *z)
 	char *str = va_arg(l, char *), pad_char = ' ';
 	unsigned int pad = 0, s = 0, i = 0, j;
 
-	(void)params;
+	(void)z;
 	switch ((int)(!str))
 		case 1:
 			str = NULL_STRING;
@@ -66,12 +66,12 @@ int print_string(va_list l, flags_t *z)
 	{
 		if (z->precision != UINT_MAX)
 			for (i = 0; i < pad; i++)
-				sum += _putchar(*str++);
+				s += _putchar(*str++);
 		else
-			sum += _puts(str);
+			s += _puts(str);
 	}
 	while (j++ < z->width)
-		sum += _putchar(pad_char);
+		s += _putchar(pad_char);
 	if (!z->minus_flag)
 	{
 		if (z->precision != UINT_MAX)

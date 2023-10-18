@@ -45,23 +45,21 @@ typedef struct parameters
 	unsigned int minus_flag		: 1;
 
 	unsigned int width;
-	unsigned int precision;
+ssqq	unsigned int precision;
 
 	unsigned int h_modifier		: 1;
 	unsigned int l_modifier		: 1;
 } flags_t;
 
-/**
+/**ss
  * struct specifier - token of stuct
  *
  * @f: The function associated
  * @specifier: token of format
  */
 typedef struct specifier
-{
-  char *specifier;
-             int (*f)(va_list, flags_t *);
-	
+{             int (f)(va_list, flags_t);
+	char *specifier;
 } specifier_t;
 
 char *convert(long int num, int b, int f, flags_t *z);
