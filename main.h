@@ -89,7 +89,7 @@ int print_HEX(va_list l, flags_t *z);
 int print_binary(va_list l, flags_t *z);
 int print_octal(va_list l, flags_t *z);
 
-int print_from_to(char *stt, char *stp, char *exc);
+int print_from_to(char *st, char *stop, char *except);
 int print_rev(va_list l, flags_t *z);
 int print_rot13(va_list l, flags_t *z);
 

@@ -40,7 +40,6 @@ x = get_precision(x, l, &z);
 if (get_modifier(x, &z))
 x++;
 if (!get_specifier(x))
-
 m += print_from_to(st, x, z.l_modifier || z.h_modifier ? x - 1 : 0);
 else
 m += get_pfunc(x, l, &z);
