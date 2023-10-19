@@ -84,17 +84,15 @@ int _HEX(va_list l, flags_t *z);
 int _binary(va_list l, flags_t *z);
 int _octal(va_list l, flags_t *z);
 
-<<<<<<< HEAD
 int print_char(va_list l, flags_t *z);
 int print_integer(va_list l, flags_t *z);
 int print_rev(va_list l, flags_t *z);
 int print_percent(va_list l, flags_t *z);
 int print_S(va_list l, flags_t *z);
-=======
+
 int simple_printers(char *stt, char *stp, char *exc);
 int _rev(va_list l, flags_t *z);
 int _rot13(va_list l, flags_t *z);
->>>>>>> 8df05b97c51bd26920f41f16b8d8cd636fa49ed0
 
 int _isdigit(int c);
 int _strlen(char *s);
@@ -104,12 +102,12 @@ int number_leftshift(char *str, flags_t *z);
 
 void init_z(flags_t *z, va_list l);
 
-<<<<<<< HEAD
+
 int print_from_to(char *stt, char *stp, char *exc);
 int print_rot13(va_list l, flags_t *z);
-=======
+
 char *_precision(char *n, va_list l, flags_t *z);
->>>>>>> 8df05b97c51bd26920f41f16b8d8cd636fa49ed0
+
 
 int _printf(const char *format, ...);
 
