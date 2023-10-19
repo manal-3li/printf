@@ -12,19 +12,19 @@ int y = 0;
 while (stt <= stp)
 {
 if (stt != exc)
-y += _putchar(*stt);
+y += put_char(*stt);
 stt++;
 }
 return (y);
 }
 /**
- * prints_rev - print string in reverse
+ * _rev - print string in reverse
  * @l: string
  * @z: the parameters struct
  * Return: number bytes printed
  *
 */
-int prints_rev(va_list l, flags_t *z)
+int _rev(va_list l, flags_t *z)
 {
 int i;
 int s = 0;
@@ -36,17 +36,17 @@ for (i = 0; *y; y++)
 i++;
 y--;
 for (; i > 0; i--, y--)
-s += _putchar(*y);
+s += put_char(*y);
 }
 return (s);
 }
 /**
- * rot13 - prints the rot13'ed string
+ * _rot13 - prints the rot13'ed string
  * @l: string
  * @z: the parameters struct
  * Return: number bytes printed
 */
-int rot13(va_list l, flags_t *z)
+int _rot13(va_list l, flags_t *z)
 {
 int n;
 int ind;
@@ -61,10 +61,10 @@ while (x[n])
 if ((x[n] >= 'A' && x[n] <= 'Z') || (x[n] >= 'a' && x[n] <= 'z'))
 {
 ind = x[n] - 65;
-c += _putchar(ai[ind]);
+c += put_char(ai[ind]);
 }
 else
-c += _putchar(x[n]);
+c += put_char(x[n]);
 n++;
 }
 return (c);

@@ -1,32 +1,32 @@
 #include "main.h"
 
 /**
- * print_number_left_shift - prints a number with options
+ * number_leftshift - prints a number with options
  * @str: the base number as a string
  * @z: the parameter struct
  *
  * Return: chars printed
  */
-int print_number_left_shift(char *str, flags_t *z)
+int number_leftshift(char *str, flags_t *z)
 {
 	unsigned int n = 0, neg, neg2, i = _strlen(str);
 	char pad_char = ' ';
 
-	if (z->zero_flag && !z->minus_flag)
+	if (z->z_f && !z->minus_f)
 		pad_char = '0';
 	neg = neg2 = (!z->unsign && *str == '-');
-	if (neg && i < z->width && pad_char == '0' && !z->minus_flag)
+	if (neg && i < z->width && pad_char == '0' && !z->minus_f)
 		str++;
 	else
 		neg = 0;
 
-	if (z->plus_flag && !neg2 && !z->unsign)
-		n += _putchar('+'), i++;
-	else if (z->space_flag && !neg2 && !z->unsign)
-		n += _putchar(' '), i++;
-	n += _puts(str);
+	if (z->p_f && !neg2 && !z->unsign)
+		n += put_char('+'), i++;
+	else if (z->s_f && !neg2 && !z->unsign)
+		n += put_char(' '), i++;
+	n += _put(str);
 	while (i++ < z->width)
-		n += _putchar(pad_char);
+		n += put_char(pad_char);
 	return (n);
 }
 
@@ -57,55 +57,55 @@ int _strlen(char *s)
 }
 
 /**
- * print_number_right_shift - prints a number
+ * number_rightshift - prints a number
  * @str: the base number as a string
  * @z: the parameter struct
  *
  * Return: chars printed
  */
-int print_number_right_shift(char *str, flags_t *z)
+int number_rightshift(char *str, flags_t *z)
 {
 	unsigned int n = 0, neg, neg2, i = _strlen(str);
 	char pad_char = ' ';
 
-	if (z->zero_flag && !z->minus_flag)
+	if (z->z_f && !z->minus_f)
 		pad_char = '0';
 	neg = neg2 = (!z->unsign && *str == '-');
-	if (neg && i < z->width && pad_char == '0' && !z->minus_flag)
+	if (neg && i < z->width && pad_char == '0' && !z->minus_f)
 		str++;
 	else
 		neg = 0;
-	if ((z->plus_flag && !neg2) ||
-		(!z->plus_flag && z->space_flag && !neg2))
+	if ((z->p_f && !neg2) ||
+		(!z->p_f && z->s_f && !neg2))
 		i++;
 	if (neg && pad_char == '0')
-		n += _putchar('-');
-	if (z->plus_flag && !neg2 && pad_char == '0' && !z->unsign)
-		n += _putchar('+');
-	else if (!z->plus_flag && z->space_flag && !neg2 &&
-		!z->unsign && z->zero_flag)
-		n += _putchar(' ');
+		n += put_char('-');
+	if (z->p_f && !neg2 && pad_char == '0' && !z->unsign)
+		n += put_char('+');
+	else if (!z->p_f && z->s_f && !neg2 &&
+		!z->unsign && z->z_f)
+		n += put_char(' ');
 	while (i++ < z->width)
-		n += _putchar(pad_char);
+		n += put_char(pad_char);
 	if (neg && pad_char == ' ')
-		n += _putchar('-');
-	if (z->plus_flag && !neg2 && pad_char == ' ' && !z->unsign)
-		n += _putchar('+');
-	else if (!z->plus_flag && z->space_flag && !neg2 &&
-		!z->unsign && !z->zero_flag)
-		n += _putchar(' ');
-	n += _puts(str);
+		n += put_char('-');
+	if (z->p_f && !neg2 && pad_char == ' ' && !z->unsign)
+		n += put_char('+');
+	else if (!z->p_f && z->s_f && !neg2 &&
+		!z->unsign && !z->z_f)
+		n += put_char(' ');
+	n += _put(str);
 	return (n);
 }
 
 /**
- * print_number - prints a number with options
+ * _number - prints a number with options
  * @str: the base number as a string
  * @z: the parameter struct
  *
  * Return: print characters
  */
-int print_number(char *str,  flags_t *z)
+int _number(char *str,  flags_t *z)
 {
 	unsigned int i = _strlen(str);
 	int neg = (!z->unsign && *str == '-');
@@ -123,8 +123,8 @@ int print_number(char *str,  flags_t *z)
 	if (neg)
 		*--str = '-';
 
-	if (!z->minus_flag)
-		return (print_number_right_shift(str, z));
+	if (!z->minus_f)
+		return (number_rightshift(str, z));
 	else
-		return (print_number_left_shift(str, z));
+		return (number_leftshift(str, z));
 }

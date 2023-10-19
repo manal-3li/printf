@@ -1,34 +1,34 @@
 #include "main.h"
 
 /**
- * print_address - prints address
+ * _address - prints address
  * @l: argument pointer
  * @z: the parameters struct
  *
  * Return: bytes printed
  */
-int print_address(va_list l, flags_t *z)
+int _address(va_list l, flags_t *z)
 {
 	unsigned long int n = va_arg(l, unsigned long int);
 	char *s;
 
 	if (!n)
-		return (_puts("(nil)"));
+		return (_put("(nil)"));
 
 	s = convert(n, 16, CONVERT_UNSIGNED | CONVERT_LOWERCASE, z);
 	*--s = 'x';
 	*--s = '0';
-	return (print_number(s, z));
+	return (_number(s, z));
 }
 
 /**
- * print_unsigned - prints unsigned integer numbers
+ * _unsigned - prints unsigned integer numbers
  * @z: the parameters struct
  * @l: argument pointer
  *
  * Return: bytes printed
  */
-int print_unsigned(va_list l, flags_t *z)
+int _unsigned(va_list l, flags_t *z)
 {
 	unsigned long u;
 
@@ -39,7 +39,7 @@ int print_unsigned(va_list l, flags_t *z)
 	else
 		u = (unsigned int)va_arg(l, unsigned int);
 	z->unsign = 1;
-	return (print_number(convert(u, 10, CONVERT_UNSIGNED, z), z));
+	return (_number(convert(u, 10, CONVERT_UNSIGNED, z), z));
 }
 
 /**

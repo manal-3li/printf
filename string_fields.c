@@ -1,13 +1,13 @@
 #include "main.h"
 /**
- * get_precision - get precision from the format string
+ * _precision - get precision from the format string
  * @n: the format string
  * @z: the parameters struct
  * @l: argument pointer
  * Return: new pointer
  *
 */
-char *get_precision(char *n, va_list l, flags_t *z)
+char *_precision(char *n, va_list l, flags_t *z)
 {
 
 int f = 0;
