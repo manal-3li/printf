@@ -9,22 +9,6 @@
 int (*_specifier(char *s))(va_list l, flags_t *z)
 {
 	specifier_t specifiers[] = {
-<<<<<<< HEAD:_specifiers.c
-	       {"c", print_char},
-		{"d", print_rev},
-		{"i", print_rev},
-		{"s", print_string},
-		{"%", print_percent},
-		{"b", print_binary},
-		{"o", print_octal},
-		{"u", print_unsigned},
-		{"x", print_hex},
-		{"X", print_HEX},
-		{"p", print_address},
-		{"S", print_S},
-		{"r", print_rev},
-		{"R", print_rot13},
-=======
 	        {"c", _char},
 		{"d", _int},
 		{"i", _int},
@@ -39,7 +23,6 @@ int (*_specifier(char *s))(va_list l, flags_t *z)
 		{"S", _S},
 		{"r", _rev},
 		{"R", _rot13},
->>>>>>> 8df05b97c51bd26920f41f16b8d8cd636fa49ed0:specifier.c
 		{NULL, NULL}
 	};
 	int j = 0;
