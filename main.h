@@ -79,7 +79,7 @@ int _putchar(int c);
 
 int print_char(va_list l, flags_t *z);
 int print_integer(va_list l, flags_t *z);
-int print_string(va_list l, flags_t *z);
+int print_rev(va_list l, flags_t *z);
 int print_percent(va_list l, flags_t *z);
 int print_S(va_list l, flags_t *z);
 
@@ -95,7 +95,6 @@ int print_binary(va_list l, flags_t *z);
 int print_octal(va_list l, flags_t *z);
 
 int print_from_to(char *stt, char *stp, char *exc);
-int print_rev(va_list l, flags_t *z);
 int print_rot13(va_list l, flags_t *z);
 
 int _printf(const char *format, ...);

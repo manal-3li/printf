@@ -10,8 +10,8 @@ int (*get_specifier(char *s))(va_list l, flags_t *z)
 {
 	specifier_t specifiers[] = {
 	       {"c", print_char},
-		{"d", print_int},
-		{"i", print_int},
+		{"d", print_rev},
+		{"i", print_rev},
 		{"s", print_string},
 		{"%", print_percent},
 		{"b", print_binary},
