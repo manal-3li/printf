@@ -1,30 +1,28 @@
 #include "main.h"
 /**
- * _puts - prints a string with newline
+ * _put - prints a string with newline
  * @st: string to print
  * return: void
  *
- *
 */
-int _puts(char *st)
+int _put(char *st)
 {
 
 char *c = st;
 
 while (*st)
-_putchar(*st++);
+put_char(*st++);
 return(st - c);
 
 }
 
 /**
- * _putchar - writes the char y to stdout
- *
+ * put_char - writes the char y to stdout
  * @y: the char to print
  * Return: 1 if success, -1 if error
  *
 */
-int _putchar(int y)
+int put_char(int y)
 {
 static int l;
 static char  buf[OUTPUT_BUF_SIZE];
