@@ -4,6 +4,7 @@
  * @stt: starting address
  * @stp: stoping address
  * @exc: except address
+ *
  * Return: number of bytes
 */
 int simple_printers(char *stt, char *stp, char *exc)
