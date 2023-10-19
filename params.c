@@ -3,6 +3,7 @@
  * init_z - clears struct fields and reset buf
  * @z: the parameters struct
  * @l: the argument pointer
+ *
  * Return: void
  *
 */
