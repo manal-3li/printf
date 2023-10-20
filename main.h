@@ -32,19 +32,19 @@
  */
 typedef struct parameters
 {
-	unsigned int unsign			: 1;
+    unsigned int unsign			: 1;
 
-	unsigned int p_f		: 1;
-	unsigned int s_f		: 1;
-	unsigned int hash_f	: 1;
-	unsigned int z_f		: 1;
-	unsigned int minus_f		: 1;
+    unsigned int p_f		: 1;
+    unsigned int s_f		: 1;
+    unsigned int hash_f	: 1;
+    unsigned int z_f		: 1;
+    unsigned int minus_f		: 1;
 
-	unsigned int width;
-	unsigned int precision;
+    unsigned int width;
+    unsigned int precision;
 
-	unsigned int h_modifier		: 1;
-	unsigned int l_modifier		: 1;
+    unsigned int h_modifier		: 1;
+    unsigned int l_modifier		: 1;
 } flags_t;
 
 /**
@@ -55,9 +55,9 @@ typedef struct parameters
  */
 typedef struct specifier
 {
-             char *specifier;
-             int (*f)(va_list, flags_t *);
-	
+    char *specifier;
+    int (*f)(va_list, flags_t *);
+
 } specifier_t;
 
 int _put(char *st);
@@ -84,6 +84,12 @@ int _HEX(va_list l, flags_t *z);
 int _binary(va_list l, flags_t *z);
 int _octal(va_list l, flags_t *z);
 
+int print_char(va_list l, flags_t *z);
+int print_integer(va_list l, flags_t *z);
+int print_rev(va_list l, flags_t *z);
+int print_percent(va_list l, flags_t *z);
+int print_S(va_list l, flags_t *z);
+
 int simple_printers(char *stt, char *stp, char *exc);
 int _rev(va_list l, flags_t *z);
 int _rot13(va_list l, flags_t *z);
@@ -96,7 +102,12 @@ int number_leftshift(char *str, flags_t *z);
 
 void init_z(flags_t *z, va_list l);
 
+
+int print_from_to(char *stt, char *stp, char *exc);
+int print_rot13(va_list l, flags_t *z);
+
 char *_precision(char *n, va_list l, flags_t *z);
+
 
 int _printf(const char *format, ...);
 
