@@ -8,34 +8,35 @@
  */
 int (*_specifier(char *s))(va_list l, flags_t *z)
 {
-	specifier_t specifiers[] = {
-	        {"c", _char},
-		{"d", _int},
-		{"i", _int},
-		{"s", _string},
-		{"%", _percent},
-		{"b", _binary},
-		{"o", _octal},
-		{"u", _unsigned},
-		{"x", _hex},
-		{"X", _HEX},
-		{"p", _address},
-		{"S", _S},
-		{"r", _rev},
-		{"R", _rot13},
-		{NULL, NULL}
-	};
-	int j = 0;
+    specifier_t specifiers[] =
+    {
+        {"c", _char},
+        {"d", _int},
+        {"i", _int},
+        {"s", _string},
+        {"%", _percent},
+        {"b", _binary},
+        {"o", _octal},
+        {"u", _unsigned},
+        {"x", _hex},
+        {"X", _HEX},
+        {"p", _address},
+        {"S", _S},
+        {"r", _rev},
+        {"R", _rot13},
+        {NULL, NULL}
+    };
+    int j = 0;
 
-	while (specifiers[j].specifier)
-	{
-		if (*s == specifiers[j].specifier[0])
-		{
-			return (specifiers[j].f);
-		}
-		j++;
-	}
-	return (NULL);
+    while (specifiers[j].specifier)
+    {
+        if (*s == specifiers[j].specifier[0])
+        {
+            return (specifiers[j].f);
+        }
+        j++;
+    }
+    return (NULL);
 }
 
 /**
@@ -47,27 +48,27 @@ int (*_specifier(char *s))(va_list l, flags_t *z)
  */
 int _flag(char *s, flags_t *z)
 {
-	int j = 0;
+    int j = 0;
 
-	switch (*s)
-	{
-                case '#':
-			j = z->hash_f= 1;
-			break;
-		case '-':
-			j = z->minus_f = 1;
-			break;
-                case '0':
-			j = z->z_f = 1;
-			break;
-		case '+':
-			j = z->p_f = 1;
-			break;
-		case ' ':
-			j = z->s_f = 1;
-			break;
-			}
-	return (j);
+    switch (*s)
+    {
+    case '#':
+        j = z->hash_f= 1;
+        break;
+    case '-':
+        j = z->minus_f = 1;
+        break;
+    case '0':
+        j = z->z_f = 1;
+        break;
+    case '+':
+        j = z->p_f = 1;
+        break;
+    case ' ':
+        j = z->s_f = 1;
+        break;
+    }
+    return (j);
 }
 
 /**
@@ -80,11 +81,11 @@ int _flag(char *s, flags_t *z)
  */
 int _pfunc(char *s, va_list l, flags_t *z)
 {
-	int (*f)(va_list, flags_t *) = _specifier(s);
+    int (*f)(va_list, flags_t *) = _specifier(s);
 
-	if (f)
-		return (f(l, z));
-	return (0);
+    if (f)
+        return (f(l, z));
+    return (0);
 }
 
 /**
@@ -97,20 +98,20 @@ int _pfunc(char *s, va_list l, flags_t *z)
  */
 char *_width(char *s, va_list l, flags_t *z)
 {
-	int d = 0;
+    int d = 0;
 
-	if (*s == '*')
-	{
-		d = va_arg(l, int);
-		s++;
-	}
-	else
-	{
-	  while (_isdigit(*s))
-			d = d * 10 + (*s++ - '0');
-	}
-	z->width = d;
-	return (s);
+    if (*s == '*')
+    {
+        d = va_arg(l, int);
+        s++;
+    }
+    else
+    {
+        while (_isdigit(*s))
+            d = d * 10 + (*s++ - '0');
+    }
+    z->width = d;
+    return (s);
 }
 
 /**
@@ -122,16 +123,16 @@ char *_width(char *s, va_list l, flags_t *z)
  */
 int _modify(char *s, flags_t *z)
 {
-	int j = 0;
+    int j = 0;
 
-	switch (*s)
-	{
-           case 'l':
-		j = z->l_modifier = 1;
-		break;
-	   case 'h':
-		j = z->h_modifier = 1;
-		break;
-	}
-	return (j);
+    switch (*s)
+    {
+    case 'l':
+        j = z->l_modifier = 1;
+        break;
+    case 'h':
+        j = z->h_modifier = 1;
+        break;
+    }
+    return (j);
 }
