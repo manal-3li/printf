@@ -11,20 +11,20 @@
 char *_precision(char *n, va_list l, flags_t *z)
 {
 
-int f = 0;
-if (*n != '.')
-return (n);
-n++;
-if (*n == '*')
-{
-f = va_arg(l, int);
-n++;
-}
-else
-{
-while (_isdigit(*n))
-f = f * 10 + (*n++ - '0');
-}
-z->precision = f;
-return (n);
+    int f = 0;
+    if (*n != '.')
+        return (n);
+    n++;
+    if (*n == '*')
+    {
+        f = va_arg(l, int);
+        n++;
+    }
+    else
+    {
+        while (_isdigit(*n))
+            f = f * 10 + (*n++ - '0');
+    }
+    z->precision = f;
+    return (n);
 }

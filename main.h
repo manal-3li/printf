@@ -32,19 +32,19 @@
  */
 typedef struct parameters
 {
-	unsigned int unsign			: 1;
+    unsigned int unsign			: 1;
 
-	unsigned int p_f		: 1;
-	unsigned int s_f		: 1;
-	unsigned int hash_f	: 1;
-	unsigned int z_f		: 1;
-	unsigned int minus_f		: 1;
+    unsigned int p_f		: 1;
+    unsigned int s_f		: 1;
+    unsigned int hash_f	: 1;
+    unsigned int z_f		: 1;
+    unsigned int minus_f		: 1;
 
-	unsigned int width;
-	unsigned int precision;
+    unsigned int width;
+    unsigned int precision;
 
-	unsigned int h_modifier		: 1;
-	unsigned int l_modifier		: 1;
+    unsigned int h_modifier		: 1;
+    unsigned int l_modifier		: 1;
 } flags_t;
 
 /**
@@ -55,9 +55,9 @@ typedef struct parameters
  */
 typedef struct specifier
 {
-             char *specifier;
-             int (*f)(va_list, flags_t *);
-	
+    char *specifier;
+    int (*f)(va_list, flags_t *);
+
 } specifier_t;
 
 int _put(char *st);

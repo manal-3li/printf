@@ -9,11 +9,11 @@
 int _put(char *st)
 {
 
-char *c = st;
+    char *c = st;
 
-while (*st)
-put_char(*st++);
-return(st - c);
+    while (*st)
+        put_char(*st++);
+    return(st - c);
 
 }
 
@@ -25,14 +25,14 @@ return(st - c);
 */
 int put_char(int y)
 {
-static int l;
-static char  buf[OUTPUT_BUF_SIZE];
-if (y == BUF_FLUSH || l >= OUTPUT_BUF_SIZE)
-{
-write(1, buf, l);
-l = 0;
-}
-if (y != BUF_FLUSH)
-buf[l++] = y;
-return (1);
+    static int l;
+    static char  buf[OUTPUT_BUF_SIZE];
+    if (y == BUF_FLUSH || l >= OUTPUT_BUF_SIZE)
+    {
+        write(1, buf, l);
+        l = 0;
+    }
+    if (y != BUF_FLUSH)
+        buf[l++] = y;
+    return (1);
 }
